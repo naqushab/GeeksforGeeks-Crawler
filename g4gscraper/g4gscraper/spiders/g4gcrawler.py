@@ -28,5 +28,5 @@ class G4GSpider(CrawlSpider):
 
         item = G4GscraperItem()
         item['title'] = title
-        item['content'] = response.url
+        item['content'] = content
         yield item
