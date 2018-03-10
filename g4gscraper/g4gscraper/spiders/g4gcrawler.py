@@ -8,11 +8,16 @@ from g4gscraper.items import G4GscraperItem
 class G4GSpider(CrawlSpider):
     name = "g4gtags"
     allowed_domains = ["www.geeksforgeeks.org"]
-    startingUrl = 'https://www.cdn.geeksforgeeks.org/tag/amazon/'
-    start_urls = [
-        startingUrl
-    ]
+    start_urls = []
+    tag = None
 
+    def __init__(self, tag='amazon', *args, **kwargs):
+        super(G4GSpider, self).__init__(*args, **kwargs)
+        self.tag = str(tag).lower()
+        baseURL = 'https://www.geeksforgeeks.org/tag/' + self.tag
+        print(baseURL)
+        self.start_urls.append(baseURL)
+    
     def parse(self, response):
         item_links = response.css('.entry-title a::attr(href)').extract()
 
@@ -28,5 +33,5 @@ class G4GSpider(CrawlSpider):
 
         item = G4GscraperItem()
         item['title'] = title
-        item['content'] = content
+        item['content'] = response.url
         yield item
