@@ -5,6 +5,25 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "Scrapy",
+            "type": "python",
+            "request": "launch",
+            "stopOnEntry": true,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "~/.virtualenvs/scrapy/bin/scrapy",
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "crawl",
+                "g4gtagcrawler",
+                "-o",
+                "data.json"
+            ],
+            "console": "integratedTerminal",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "debugOptions": []
+        },
+        {
             "name": "Python: Current File",
             "type": "python",
             "request": "launch",
@@ -180,27 +199,6 @@
             ],
             "env": {},
             "envFile": "${workspaceFolder}/.env",
-            "debugOptions": [
-                "RedirectOutput"
-            ]
-        },
-        {
-            "name": "Scrapy with Integrated Terminal/Console",
-            "type": "python",
-            "request": "launch",
-            "stopOnEntry": true,
-            "pythonPath": "${config:python.pythonPath}",
-            "program": "C:/Users/neyazee/.virtualenvs/GeeksforGeeks-Crawler-77pVkqzP/Scripts/scrapy.exe",
-            "cwd": "${workspaceRoot}",
-            "args": [
-                "crawl",
-                "amazon",
-                "-o",
-                "amazon.json"
-            ],
-            "console": "integratedTerminal",
-            "env": {},
-            "envFile": "${workspaceRoot}/.env",
             "debugOptions": [
                 "RedirectOutput"
             ]

@@ -6,13 +6,15 @@ from g4gscraper.items import G4GscraperItem
 
 
 class G4GSpider(CrawlSpider):
-    name = "g4gcrawler"
+    name = "g4gtagcrawler"
     allowed_domains = ["www.geeksforgeeks.org"]
     start_urls = []
+    tag = None
 
     def __init__(self, tag='amazon', *args, **kwargs):
         super(G4GSpider, self).__init__(*args, **kwargs)
-        baseURL = 'https://www.geeksforgeeks.org/'
+        self.tag = str(tag).lower()
+        baseURL = 'https://www.geeksforgeeks.org/tag/' + self.tag
         print(baseURL)
         self.start_urls.append(baseURL)
     
