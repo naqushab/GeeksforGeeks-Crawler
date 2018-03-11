@@ -10,7 +10,7 @@ class G4GSpider(CrawlSpider):
     allowed_domains = ["www.geeksforgeeks.org"]
     start_urls = []
 
-    def __init__(self, tag='amazon', *args, **kwargs):
+    def __init__(self, *args, **kwargs):
         super(G4GSpider, self).__init__(*args, **kwargs)
         baseURL = 'https://www.geeksforgeeks.org/'
         print(baseURL)

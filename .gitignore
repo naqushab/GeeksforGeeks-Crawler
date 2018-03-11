@@ -297,3 +297,9 @@ __pycache__/
 *.btm.cs
 *.odx.cs
 *.xsd.cs
+
+# Scrapy outputs
+g4gscraper/*.csv
+g4gscraper/*.xml
+g4gscraper/*.json
+g4gscraper/*.jl
