@@ -4,6 +4,8 @@ from scrapy.spiders import CrawlSpider, Rule
 from scrapy.linkextractors import LinkExtractor
 from g4gscraper.items import G4GscraperItem
 
+import html2text
+
 
 class G4GSpider(CrawlSpider):
     name = "g4gtagcrawler"
@@ -29,9 +31,11 @@ class G4GSpider(CrawlSpider):
 
     def parse_detail_page(self, response):
         title = response.css('.entry-title').extract()[0].strip()
-        content = response.css('.entry-content').extract()[0]
+        content = response.css('.entry-content').extract()[0].strip()
+
+        mdtext = html2text.html2text(content)
 
         item = G4GscraperItem()
         item['title'] = title
-        item['content'] = content
+        item['content'] =  content
         yield item
